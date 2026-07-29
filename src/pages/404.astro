@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lang = Astro.url?.pathname?.startsWith('/en') ? 'en' : 'es';
+const title = lang === 'en' ? 'Page Not Found' : 'Página No Encontrada';
+---
+
+<BaseLayout title={title}>
+  <Header lang={lang} slot="header" />
+  <section class="min-h-[60vh] flex items-center justify-center px-[20px]">
+    <div class="text-center space-y-6 max-w-lg">
+      <div class="text-[120px] font-display-lg text-moss-green leading-none">404</div>
+      <h1 class="text-headline-lg font-headline-lg text-deep-navy">
+        {lang === 'en' ? 'Page Not Found' : 'Página No Encontrada'}
+      </h1>
+      <p class="text-body-lg text-on-surface-variant">
+        {lang === 'en'
+          ? "The page you're looking for doesn't exist or has been moved."
+          : 'La página que buscas no existe o ha sido movida.'}
+      </p>
+      <a
+        href={lang === 'en' ? '/en/' : '/'}
+        class="inline-block bg-moss-green text-surface-cream px-8 py-4 rounded-full text-label-md font-label-md hover:shadow-lg transition-all no-underline"
+      >
+        {lang === 'en' ? 'Go Home' : 'Ir al Inicio'}
+      </a>
+    </div>
+  </section>
+  <Footer lang={lang} slot="footer" />
+</BaseLayout>

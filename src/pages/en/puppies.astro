@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getAllPuppies } from '../../lib/puppies.js';
+import { t } from '../../i18n/utils.js';
+
+const lang = 'en';
+const allPuppies = await getAllPuppies();
+const puppies = allPuppies.filter(p => p.id !== '6a6018299cbaf604fac05189');
+
+function statusLabel(status) {
+  const map = {
+    nuevo: t(lang, 'puppies.tag_new'),
+    disponible: t(lang, 'puppies.tag_available'),
+    reservado: t(lang, 'puppies.status_reservado'),
+    destacado: t(lang, 'puppies.status_destacado'),
+  };
+  return map[status?.toLowerCase()] || status;
+}
+
+function statusClass(status) {
+  const map = {
+    nuevo: 'bg-sprout-lime text-deep-navy',
+    disponible: 'bg-white/90 backdrop-blur-sm text-deep-navy border border-surface-container',
+    reservado: 'bg-amber-100 text-amber-800 backdrop-blur-sm',
+    destacado: 'bg-moss-green text-surface-cream',
+  };
+  return map[status?.toLowerCase()] || 'bg-white/90 backdrop-blur-sm text-deep-navy border border-surface-container';
+}
+---
+
+<BaseLayout title={t(lang, 'puppies.title')}>
+  <Header lang={lang} slot="header" />
+  <main class="max-w-7xl mx-auto px-[20px] py-16">
+    <div class="text-center mb-12">
+      <h1 class="font-headline-lg text-deep-navy">{t(lang, 'puppies.title')}</h1>
+      <p class="font-body-md text-on-surface-variant mt-2">{t(lang, 'puppies.subtitle')}</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px]">
+      {puppies.map((pup) => {
+        const href = `/en/puppy/${pup.id}`;
+        return (
+          <a href={href} class="group no-underline">
+            <div class="relative aspect-[4/5] rounded-[24px] overflow-hidden">
+              <img
+                src={pup.profilePhotoUrl}
+                alt={pup.fullName || pup.breed}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full font-label-sm text-[11px] tracking-wider uppercase bg-white/60 backdrop-blur-md text-deep-navy">
+                {statusLabel(pup.status)}
+              </div>
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                <div>
+                  <h3 class="font-headline-sm text-white">{pup.fullName || pup.breed}</h3>
+                  <p class="font-body-sm text-white/80 mt-0.5">{t(lang, `breed.${pup.breed}`) || pup.breed}</p>
+                </div>
+                <span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transition-opacity text-xl">arrow_circle_right</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </main>
+  <Footer lang={lang} slot="footer" />
+</BaseLayout>

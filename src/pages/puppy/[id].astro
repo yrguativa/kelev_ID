@@ -7,7 +7,7 @@ import { getAllPuppies } from '../../lib/puppies.js';
 
 export async function getStaticPaths() {
   const puppies = await getAllPuppies();
-  return puppies.map(pup => ({
+  return puppies.filter(pup => pup.id !== '6a6018299cbaf604fac05189' && pup.id !== '6a600f769096a0838fbc83bc').map(pup => ({
     params: { id: pup.id },
     props: { puppy: pup },
   }));
