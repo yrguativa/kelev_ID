@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: 'Literata', serif;
+  --font-body: 'Hanken Grotesk', sans-serif;
+  --font-headline-md: 'Literata', serif;
+  --font-headline-lg: 'Literata', serif;
+  --font-display-lg: 'Literata', serif;
+  --font-label-md: 'Hanken Grotesk', sans-serif;
+  --font-label-sm: 'Hanken Grotesk', sans-serif;
+  --font-body-md: 'Hanken Grotesk', sans-serif;
+  --font-body-lg: 'Hanken Grotesk', sans-serif;
+
+  --color-surface-cream: #FCFAED;
+  --color-moss-green: #5A6C01;
+  --color-sprout-lime: #D6ED7C;
+  --color-deep-navy: #041128;
+  --color-primary: #445300;
+  --color-primary-container: #5a6c01;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #d6ed7c;
+  --color-primary-fixed: #d6ed7c;
+  --color-primary-fixed-dim: #bad063;
+  --color-on-primary-fixed: #181e00;
+  --color-on-primary-fixed-variant: #3f4c00;
+  --color-secondary: #546500;
+  --color-secondary-container: #d6ed7c;
+  --color-secondary-fixed: #d6ed7c;
+  --color-secondary-fixed-dim: #bad063;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-fixed: #181e00;
+  --color-on-secondary-fixed-variant: #3f4c00;
+  --color-on-secondary-container: #596c00;
+  --color-tertiary: #414d67;
+  --color-tertiary-container: #596580;
+  --color-tertiary-fixed: #d8e2ff;
+  --color-tertiary-fixed-dim: #bac6e5;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-fixed: #0e1b33;
+  --color-on-tertiary-fixed-variant: #3b4760;
+  --color-on-tertiary-container: #d9e3ff;
+  --color-surface: #fcfaed;
+  --color-surface-dim: #dcdace;
+  --color-surface-bright: #fcfaed;
+  --color-surface-container: #f0eee1;
+  --color-surface-container-low: #f6f4e7;
+  --color-surface-container-high: #eae9dc;
+  --color-surface-container-highest: #e5e3d6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #e5e3d6;
+  --color-on-surface: #1b1c14;
+  --color-on-surface-variant: #464839;
+  --color-inverse-surface: #303129;
+  --color-inverse-on-surface: #f3f1e4;
+  --color-inverse-primary: #bad063;
+  --color-outline: #767967;
+  --color-outline-variant: #c6c8b4;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-background: #1b1c14;
+  --color-surface-tint: #546500;
+  --color-background: #fcfaed;
+}
+
+:root {
+  --container-margin: 20px;
+  --gutter: 16px;
+  --stack-sm: 8px;
+  --stack-md: 16px;
+  --stack-lg: 32px;
+  --unit: 8px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+.squircle {
+  border-radius: 48px;
+}
+
+.tag-active {
+  background-color: rgba(214, 237, 124, 0.2);
+  border: 0.5px solid rgba(84, 101, 0, 0.3);
+}
+
+.elevation-soft {
+  box-shadow: 0 4px 12px 0 rgba(4, 17, 40, 0.04);
+}
+
+.button-squish:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pressed {
+  transform: scale(0.98) !important;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@utility font-label-sm {
+  font-family: var(--font-label-sm);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+@utility font-label-md {
+  font-family: var(--font-label-md);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+}
+
+@utility font-body-md {
+  font-family: var(--font-body-md);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@utility font-body-lg {
+  font-family: var(--font-body-lg);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+@utility font-headline-md {
+  font-family: var(--font-headline-md);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@utility font-headline-lg {
+  font-family: var(--font-headline-lg);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+@utility font-display-lg {
+  font-family: var(--font-display-lg);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+}

@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description ?? 'Kelev ID - La identidad digital de tu mascota'} />
+    <title>{title} | Kelev ID</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot name="header" />
+    <main>
+      <slot />
+    </main>
+    <slot name="footer" />
+    <script>
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (header && window.scrollY > 20) {
+          header.classList.add('shadow-sm');
+          header.style.backgroundColor = 'rgba(252, 250, 237, 0.8)';
+          header.style.backdropFilter = 'blur(12px)';
+        } else if (header) {
+          header.classList.remove('shadow-sm');
+          header.style.backgroundColor = '';
+          header.style.backdropFilter = '';
+        }
+      });
+
+      document.querySelectorAll('.elevation-soft').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-4px)';
+          card.style.transition = 'transform 0.3s ease';
+          card.style.boxShadow = '0 12px 24px 0 rgba(4, 11, 40, 0.08)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = '0 4px 12px 0 rgba(4, 17, 40, 0.04)';
+        });
+      });
+
+      document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('mousedown', () => btn.classList.add('pressed'));
+        btn.addEventListener('mouseup', () => btn.classList.remove('pressed'));
+        btn.addEventListener('mouseleave', () => btn.classList.remove('pressed'));
+      });
+    </script>
+  </body>
+</html>
