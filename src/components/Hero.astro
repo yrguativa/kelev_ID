@@ -1,39 +1,43 @@
+---
+const { lang = 'es' } = Astro.props;
+import { t } from '../i18n/utils.js';
+---
 <section class="max-w-7xl mx-auto px-[20px] pt-24 pb-8">
   <div class="bg-white squircle elevation-soft overflow-hidden flex flex-col md:flex-row min-h-[500px]">
     <div class="md:w-5/12 h-[400px] md:h-auto overflow-hidden relative">
       <div class="absolute top-6 left-6 bg-sprout-lime text-deep-navy px-4 py-1 rounded-full font-label-sm uppercase tracking-wider z-10">
-        Passport Active
+        {t(lang, 'passport.badge')}
       </div>
       <img src="https://lh3.googleusercontent.com/aida/AP1WRLvZjDeQtDgjBLhqz6ZDbOoRNpVQBmLg2-T8wHL0i0s4nqex0GUjxrGO7DhljAcnc0b2_n4MwroG8Nq51lClVTcQCulPCJQTqpYqQcDDpE7tZTCT_JKoFwu2sgqho0KPpkYQP4aLytE0poTuQHho0hqlJvAMEeL7Yf4ywTJ7Tqr9g29kQmD1lUClXJB_poSDKY7QiAOQKSll7NXYqdV9A3UcbWMsDnlBZE7y7SNYVvVrJ3_8yByjrezA-Xnh" alt="Rocky" class="w-full h-full object-cover" />
     </div>
     <div class="md:w-7/12 p-10 md:p-16 flex flex-col justify-center">
       <div class="flex items-center gap-4 mb-2">
         <span class="w-12 h-[2px] bg-sprout-lime"></span>
-        <span class="font-label-md text-moss-green tracking-[0.2em] uppercase">Digital Passport</span>
+        <span class="font-label-md text-moss-green tracking-[0.2em] uppercase">{t(lang, 'passport.label')}</span>
       </div>
-      <h2 class="font-display-lg text-[64px] leading-tight text-deep-navy mb-8">Rocky</h2>
+      <h2 class="font-display-lg text-[64px] leading-tight text-deep-navy mb-8">{t(lang, 'passport.name')}</h2>
       <div class="grid grid-cols-2 gap-y-8 gap-x-12">
         <div>
-          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Breed</p>
-          <p class="font-headline-md text-primary">Teckel</p>
+          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'passport.breed_label')}</p>
+          <p class="font-headline-md text-primary">{t(lang, 'passport.breed')}</p>
         </div>
         <div>
-          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Gender</p>
-          <p class="font-headline-md text-primary">Macho</p>
+          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'passport.gender_label')}</p>
+          <p class="font-headline-md text-primary">{t(lang, 'passport.gender')}</p>
         </div>
         <div>
-          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Birth Date</p>
-          <p class="font-headline-md text-primary">Recién nacido</p>
+          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'passport.birth_label')}</p>
+          <p class="font-headline-md text-primary">{t(lang, 'passport.birth')}</p>
         </div>
         <div>
-          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Color</p>
-          <p class="font-headline-md text-primary">Arlequín</p>
+          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'passport.color_label')}</p>
+          <p class="font-headline-md text-primary">{t(lang, 'passport.color')}</p>
         </div>
         <div class="col-span-2 pt-4 border-t border-surface-container">
-          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Microchip ID</p>
+          <p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-2">{t(lang, 'passport.microchip_label')}</p>
           <div class="flex items-center gap-3">
             <span class="material-symbols-outlined text-moss-green [font-variation-settings:'FILL'_1]">qr_code_2</span>
-            <p class="font-label-md text-xl font-mono tracking-widest text-deep-navy">9851 123 456 789</p>
+            <p class="font-label-md text-xl font-mono tracking-widest text-deep-navy">{t(lang, 'passport.microchip')}</p>
           </div>
         </div>
       </div>

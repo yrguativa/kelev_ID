@@ -1,52 +1,57 @@
-<section class="max-w-7xl mx-auto px-[20px] py-8">
+---
+const { lang = 'es', puppies = [] } = Astro.props;
+import { t } from '../i18n/utils.js';
+
+function statusLabel(status) {
+  const map = {
+    nuevo: t(lang, 'puppies.tag_new'),
+    disponible: t(lang, 'puppies.tag_available'),
+    reservado: 'Reservado',
+    destacado: 'Destacado',
+  };
+  return map[status?.toLowerCase()] || status;
+}
+
+function statusClass(status) {
+  const map = {
+    nuevo: 'bg-sprout-lime text-deep-navy',
+    disponible: 'bg-white/90 backdrop-blur-sm text-deep-navy border border-surface-container',
+    reservado: 'bg-amber-100 text-amber-800 backdrop-blur-sm',
+    destacado: 'bg-moss-green text-surface-cream',
+  };
+  return map[status?.toLowerCase()] || 'bg-white/90 backdrop-blur-sm text-deep-navy border border-surface-container';
+}
+---
+
+<section class="max-w-7xl mx-auto px-[20px] py-8" id="puppies">
   <div class="text-center mb-12">
-    <h3 class="font-headline-lg text-deep-navy">Available Puppies</h3>
-    <p class="font-body-md text-on-surface-variant">Find your next best friend among our certified breeds.</p>
+    <h3 class="font-headline-lg text-deep-navy">{t(lang, 'puppies.title')}</h3>
+    <p class="font-body-md text-on-surface-variant">{t(lang, 'puppies.subtitle')}</p>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px]">
-    <div class="group cursor-pointer">
-      <div class="relative aspect-[3/4] rounded-[32px] overflow-hidden mb-4">
-        <img src="https://lh3.googleusercontent.com/aida/AP1WRLs3i8J-RVFGhAPf1y66E0H5wvMKawiJQhlVbSYr6xywiunUipYTC2EvGWS8pn8ZDrLOe3wlU1cE1HlPPlXGU3oG845jIIQ1eMbHRzTLb-ze-BQzVCgPW6G6cKO-AewR45Hg7PAhwG8aNPtMhubzKh2JlZLxcjuqkfLtFe3vhg4svSXQO7VhtuPApk6htpw2-4f3Y_i3KyQUD8BFnJVvxWRSwCWb-oTAmc412ZU0gxj6woR9OJ2yMcObAvY" alt="Teckel Puppy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-        <div class="absolute top-4 left-4 bg-sprout-lime text-deep-navy px-3 py-1 rounded-full font-label-sm text-xs tracking-wider uppercase">Nuevo</div>
-      </div>
-      <div class="px-2">
-        <h4 class="font-headline-md text-deep-navy">Teckel</h4>
-        <div class="flex justify-between items-center mt-1">
-          <p class="text-on-surface-variant font-label-md italic">Available for adoption</p>
-          <span class="material-symbols-outlined text-moss-green opacity-0 group-hover:opacity-100 transition-opacity">arrow_circle_right</span>
-        </div>
-      </div>
-    </div>
-    <div class="group cursor-pointer">
-      <div class="relative aspect-[3/4] rounded-[32px] overflow-hidden mb-4">
-        <img src="https://lh3.googleusercontent.com/aida/AP1WRLuTonKWcEXnFTAYhIi8Phlzpb78piM3heVtX42XtE45kIPc9AdRHQi7rs4JOzb6wKbnwjiKST9gB04QylS3rpv8saLgeFhdAGzi_nXCfzgIGV6LstDEtGe936mQavxOt3xdaqTmdvW0BXRWMTha1d60aUYfyYtND_ntJ0-dEo1Jgag6eXG3fUNlmiMyDGT5kGrw7_Hj31Xrbc4HJ5y2GhO9aS7TmF80l7QYlnTOcwelp9coOusCJ-Ss8j7B" alt="Bulldog Inglés Puppy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-deep-navy px-3 py-1 rounded-full font-label-sm text-xs tracking-wider uppercase border border-surface-container">Disponible</div>
-      </div>
-      <div class="px-2">
-        <h4 class="font-headline-md text-deep-navy">Bulldog Inglés</h4>
-        <div class="flex justify-between items-center mt-1">
-          <p class="text-on-surface-variant font-label-md italic">Available for adoption</p>
-          <span class="material-symbols-outlined text-moss-green opacity-0 group-hover:opacity-100 transition-opacity">arrow_circle_right</span>
-        </div>
-      </div>
-    </div>
-    <div class="group cursor-pointer">
-      <div class="relative aspect-[3/4] rounded-[32px] overflow-hidden mb-4">
-        <img src="https://lh3.googleusercontent.com/aida/AP1WRLvT7YVUlxU1KLtm3H2OHxcARaLvcFVRqRUEcXzEvGbSqj5DJsHrzzrkwuup8BuduYsskOkZkN_TMIffI7eOJdZPzQD5iq8Atayy33kRPs0rKnv0cm3PLxY99lxpYgm8ai4PzMVGeonHK4q31dA9GwX_Hgg-_tbatdx2CE6p60idrpj8Rt6_Z6EVDA_NoyFO-8SzUDe-mL9DC73zABgbAR_ZnKaUCLhaDgUb9uwFvlGYCWYJ_d5yue7PiycD" alt="Bulldog Francés Puppy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-deep-navy px-3 py-1 rounded-full font-label-sm text-xs tracking-wider uppercase border border-surface-container">Disponible</div>
-      </div>
-      <div class="px-2">
-        <h4 class="font-headline-md text-deep-navy">Bulldog Francés</h4>
-        <div class="flex justify-between items-center mt-1">
-          <p class="text-on-surface-variant font-label-md italic">Available for adoption</p>
-          <span class="material-symbols-outlined text-moss-green opacity-0 group-hover:opacity-100 transition-opacity">arrow_circle_right</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="mt-16 flex justify-center">
-    <button class="bg-white border-2 border-moss-green text-moss-green px-12 py-4 rounded-full font-label-md text-lg hover:bg-moss-green hover:text-white transition-all duration-300 button-squish cursor-pointer">
-      Ver más
-    </button>
+    {puppies.slice(0, 6).map((pup) => {
+      const href = lang === 'en' ? `/en/puppy/${pup.id}` : `/puppy/${pup.id}`;
+      return (
+        <a href={href} class="group no-underline">
+          <div class="relative aspect-[3/4] rounded-[32px] overflow-hidden mb-4">
+            <img
+              src={pup.profilePhotoUrl}
+              alt={pup.fullName || pup.breed}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full font-label-sm text-xs tracking-wider uppercase {statusClass(pup.status)}">
+              {statusLabel(pup.status)}
+            </div>
+          </div>
+          <div class="px-2">
+            <h4 class="font-headline-md text-deep-navy">{pup.fullName || pup.breed}</h4>
+            <div class="flex justify-between items-center mt-1">
+              <p class="text-on-surface-variant font-label-md italic">{t(lang, 'puppies.adoption')}</p>
+              <span class="material-symbols-outlined text-moss-green opacity-0 group-hover:opacity-100 transition-opacity">arrow_circle_right</span>
+            </div>
+          </div>
+        </a>
+      );
+    })}
   </div>
 </section>

@@ -1,30 +1,34 @@
+---
+import { t } from '../i18n/utils.js';
+const { lang = 'es' } = Astro.props;
+---
 <section class="py-[32px] bg-surface-container-low" id="ecosystem">
   <div class="max-w-7xl mx-auto px-[20px]">
     <div class="text-center mb-16 space-y-2">
-      <h2 class="text-headline-lg font-headline-lg text-deep-navy">¿Qué es Kelev ID?</h2>
-      <p class="text-body-md font-body-md text-on-surface-variant max-w-2xl mx-auto">Más que un microchip, es la historia completa y segura de tu mejor amigo guardada para siempre.</p>
+      <h2 class="text-headline-lg font-headline-lg text-deep-navy">{t(lang, 'pillars.title')}</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant max-w-2xl mx-auto">{t(lang, 'pillars.subtitle')}</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group">
         <div class="w-14 h-14 bg-surface-cream rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-moss-green text-3xl">fingerprint</span>
         </div>
-        <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">Historial Biométrico</h3>
-        <p class="text-body-md text-on-surface-variant">Toda la información vital y registros de salud en un solo lugar inmutable. Acceso instantáneo para veterinarios certificados.</p>
+        <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">{t(lang, 'pillar1.title')}</h3>
+        <p class="text-body-md text-on-surface-variant">{t(lang, 'pillar1.text')}</p>
       </div>
       <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group">
         <div class="w-14 h-14 bg-surface-cream rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-moss-green text-3xl">hub</span>
         </div>
-        <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">Blockchain Inmortal</h3>
-        <p class="text-body-md text-on-surface-variant">Certificados de identidad registrados en blockchain para máxima seguridad y autenticidad. Tu propiedad, protegida por la tecnología.</p>
+        <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">{t(lang, 'pillar2.title')}</h3>
+        <p class="text-body-md text-on-surface-variant">{t(lang, 'pillar2.text')}</p>
       </div>
       <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group">
         <div class="w-14 h-14 bg-surface-cream rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-moss-green text-3xl">public</span>
         </div>
-        <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">Perfil de Viaje Internacional</h3>
-        <p class="text-body-md text-on-surface-variant">Simplifica los viajes internacionales con un pasaporte digital aceptado globalmente. Olvida el papeleo físico tedioso.</p>
+        <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">{t(lang, 'pillar3.title')}</h3>
+        <p class="text-body-md text-on-surface-variant">{t(lang, 'pillar3.text')}</p>
       </div>
     </div>
   </div>

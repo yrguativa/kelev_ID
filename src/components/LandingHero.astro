@@ -1,24 +1,26 @@
+---
+import { t } from '../i18n/utils.js';
+const { lang = 'es' } = Astro.props;
+---
 <section class="relative min-h-[85vh] flex items-center overflow-hidden pt-12">
   <div class="max-w-7xl mx-auto px-[20px] grid grid-cols-1 lg:grid-cols-2 gap-[32px] items-center z-10">
     <div class="space-y-[16px]">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full" style="background-color: rgba(214, 237, 124, 0.2); border: 1px solid rgba(214, 237, 124, 0.3);">
         <span class="material-symbols-outlined text-[18px] text-moss-green [font-variation-settings:'FILL'_1]">auto_awesome</span>
-        <span class="text-label-md font-label-md text-moss-green">Web3 Powered Security</span>
+        <span class="text-label-md font-label-md text-moss-green">{t(lang, 'hero.badge')}</span>
       </div>
-      <h1 class="text-display-lg font-display-lg leading-tight text-deep-navy">
-        Kelev ID: <br>
-        <span class="text-moss-green">El Futuro de la Identidad Canina</span>
+      <h1 class="text-display-lg font-display-lg leading-tight text-deep-navy" set:html={t(lang, 'hero.title')}>
       </h1>
       <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
-        Un ecosistema digital diseñado para la tranquilidad absoluta y la trazabilidad total de tu compañero de vida. Protección inmutable en la palma de tu mano.
+        {t(lang, 'hero.subtitle')}
       </p>
       <div class="flex flex-wrap gap-4 pt-4">
         <button class="bg-moss-green text-surface-cream px-8 py-4 rounded-full text-label-md font-label-md flex items-center gap-2 hover:shadow-lg transition-all active:scale-95 cursor-pointer border-none">
-          Conocer más <span class="material-symbols-outlined">arrow_forward</span>
+          {t(lang, 'hero.cta_primary')} <span class="material-symbols-outlined">arrow_forward</span>
         </button>
         <button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full text-label-md font-label-md flex items-center gap-2 border border-outline-variant/30 hover:bg-surface-container-highest transition-all active:scale-95 cursor-pointer">
           <span class="material-symbols-outlined [font-variation-settings:'FILL'_1]">play_circle</span>
-          Ver Video
+          {t(lang, 'hero.cta_secondary')}
         </button>
       </div>
     </div>
@@ -31,9 +33,9 @@
           <div class="w-10 h-10 bg-sprout-lime rounded-full flex items-center justify-center">
             <span class="material-symbols-outlined text-moss-green">verified</span>
           </div>
-          <span class="text-label-md font-label-md">100% Secure</span>
+          <span class="text-label-md font-label-md">{t(lang, 'hero.secure_title')}</span>
         </div>
-        <p class="text-[10px] text-on-surface-variant leading-tight">Identity verified via decentralized nodes.</p>
+        <p class="text-[10px] text-on-surface-variant leading-tight">{t(lang, 'hero.secure_text')}</p>
       </div>
     </div>
   </div>

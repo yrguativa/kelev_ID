@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PassportHeader from '../../components/PassportHeader.astro';
+import HeroSection from '../../components/Hero.astro';
+import KelevCare from '../../components/KelevCare.astro';
+import Contact from '../../components/Contact.astro';
+import PassportFooter from '../../components/PassportFooter.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout title="Digital Passport">
+  <PassportHeader lang={lang} slot="header" />
+  <HeroSection lang={lang} />
+  <KelevCare lang={lang} />
+  <Contact lang={lang} />
+  <PassportFooter lang={lang} slot="footer" />
+</BaseLayout>

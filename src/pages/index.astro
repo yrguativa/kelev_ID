@@ -8,15 +8,20 @@ import EcosystemSection from '../components/EcosystemSection.astro';
 import AvailablePuppies from '../components/AvailablePuppies.astro';
 import CtaSection from '../components/CtaSection.astro';
 import Footer from '../components/Footer.astro';
+import { getAllPuppies } from '../lib/puppies.js';
+
+const lang = Astro.currentLocale || 'es';
+const title = lang === 'en' ? 'Home' : 'Inicio';
+const featuredCanines = await getAllPuppies();
 ---
 
-<BaseLayout title="Inicio">
-  <Header slot="header" />
-  <LandingHero />
-  <PillarsSection />
-  <SecuritySection />
-  <EcosystemSection />
-  <AvailablePuppies />
-  <CtaSection />
-  <Footer slot="footer" />
+<BaseLayout title={title}>
+  <Header lang={lang} slot="header" />
+  <LandingHero lang={lang} />
+  <PillarsSection lang={lang} />
+  <SecuritySection lang={lang} />
+  <EcosystemSection lang={lang} />
+  <AvailablePuppies lang={lang} puppies={featuredCanines} />
+  <CtaSection lang={lang} />
+  <Footer lang={lang} slot="footer" />
 </BaseLayout>

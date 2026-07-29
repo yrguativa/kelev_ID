@@ -1,14 +1,18 @@
+---
+const { lang = 'es' } = Astro.props;
+import { t } from '../i18n/utils.js';
+---
 <footer class="bg-surface-container w-full px-[20px] py-[32px] border-t border-surface-container-highest">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-[16px]">
     <div class="flex flex-col items-center md:items-start gap-4">
       <span class="font-headline-md text-moss-green">Kelev ID</span>
-      <p class="font-body-md text-on-surface-variant text-center md:text-left">© 2024 Kelev ID. Protecting your best friend.</p>
+      <p class="font-body-md text-on-surface-variant text-center md:text-left">{t(lang, 'footer_passport.text')}</p>
     </div>
     <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">Privacy Policy</a>
-      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">Terms of Service</a>
-      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">Support</a>
-      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">Contact Us</a>
+      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">{t(lang, 'footer_passport.privacy')}</a>
+      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">{t(lang, 'footer_passport.terms')}</a>
+      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">{t(lang, 'footer_passport.support')}</a>
+      <a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-opacity hover:opacity-80 no-underline">{t(lang, 'footer_passport.contact')}</a>
     </div>
     <div class="flex gap-4">
       <div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-moss-green cursor-pointer hover:bg-moss-green hover:text-white transition-all">

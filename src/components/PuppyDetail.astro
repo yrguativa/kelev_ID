@@ -1,0 +1,130 @@
+---
+import { t } from '../i18n/utils.js';
+
+const { puppy, lang = 'es' } = Astro.props;
+
+function formatDate(dateStr) {
+  if (!dateStr) return '—';
+  const date = new Date(dateStr);
+  return date.toLocaleDateString(lang === 'en' ? 'en-US' : 'es-CO', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+function statusLabel(status) {
+  const map = {
+    nuevo: t(lang, 'puppy_detail.status_nuevo'),
+    reservado: t(lang, 'puppy_detail.status_reservado'),
+    destacado: t(lang, 'puppy_detail.status_destacado'),
+  };
+  return map[status?.toLowerCase()] || status;
+}
+
+function statusColor(status) {
+  const map = {
+    nuevo: 'bg-sprout-lime text-deep-navy',
+    reservado: 'bg-amber-100 text-amber-800',
+    destacado: 'bg-moss-green text-surface-cream',
+  };
+  return map[status?.toLowerCase()] || 'bg-surface-container text-on-surface';
+}
+
+function furLabel(furType) {
+  if (!furType) return '—';
+  const key = furType.toLowerCase() === 'corto' ? 'puppy_detail.fur_corto' : 'puppy_detail.fur_largo';
+  return t(lang, key);
+}
+---
+
+<section class="max-w-7xl mx-auto px-[20px] py-8">
+  <a href={lang === 'en' ? '/en/#puppies' : '/#puppies'} class="inline-flex items-center gap-2 text-moss-green hover:text-moss-green/80 transition-colors no-underline mb-8 group">
+    <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+    <span class="font-label-md">{t(lang, 'puppy_detail.back')}</span>
+  </a>
+
+  <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+    <div class="lg:col-span-3">
+      <div class="relative rounded-[2.5rem] overflow-hidden bg-surface-container border border-outline-variant/20 group">
+        <img
+          src={puppy.profilePhotoUrl}
+          alt={puppy.fullName || puppy.breed}
+          class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div class="absolute top-5 left-5">
+          <span class="px-4 py-1.5 rounded-full text-label-sm font-bold tracking-wider uppercase {statusColor(puppy.status)}">
+            {statusLabel(puppy.status)}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2 space-y-8">
+      <div>
+        <h1 class="text-display-lg font-display-lg text-deep-navy leading-tight mb-2">
+          {puppy.fullName || puppy.breed}
+        </h1>
+        {puppy.breedKeywords ? (
+          <p class="text-body-md text-on-surface-variant">{puppy.breedKeywords}</p>
+        ) : null}
+      </div>
+
+      <div class="grid grid-cols-2 gap-x-6 gap-y-6">
+        <div>
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'puppy_detail.breed')}</p>
+          <p class="text-headline-md font-headline-md text-deep-navy">{puppy.breed}</p>
+        </div>
+        <div>
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'puppy_detail.gender')}</p>
+          <p class="text-headline-md font-headline-md text-deep-navy">{puppy.gender}</p>
+        </div>
+        <div>
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'puppy_detail.birth_date')}</p>
+          <p class="text-headline-md font-headline-md text-deep-navy">{formatDate(puppy.birthDate)}</p>
+        </div>
+        <div>
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'puppy_detail.color')}</p>
+          <p class="text-headline-md font-headline-md text-deep-navy">{puppy.color || '—'}</p>
+        </div>
+        <div>
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'puppy_detail.fur_type')}</p>
+          <p class="text-headline-md font-headline-md text-deep-navy">{furLabel(puppy.furType)}</p>
+        </div>
+        <div>
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">{t(lang, 'puppy_detail.weight')}</p>
+          <p class="text-headline-md font-headline-md text-deep-navy">{puppy.weight ? `${puppy.weight} ${t(lang, 'puppy_detail.kg')}` : '—'}</p>
+        </div>
+      </div>
+
+      {puppy.galleryPhotos?.length > 0 ? (
+        <div>
+          <h2 class="text-headline-md font-headline-md text-deep-navy mb-4">{t(lang, 'puppy_detail.gallery')}</h2>
+          <div class="grid grid-cols-3 gap-3">
+            {puppy.galleryPhotos.map((photo, i) => {
+              const isVideo = photo.endsWith('.mp4') || photo.endsWith('.mov');
+              return isVideo ? (
+                <video
+                  src={photo}
+                  class="w-full aspect-square rounded-2xl object-cover border border-outline-variant/20"
+                  muted
+                  loop
+                  playsinline
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause()"
+                />
+              ) : (
+                <img
+                  src={photo}
+                  alt={`${puppy.fullName || puppy.breed} photo ${i + 1}`}
+                  class="w-full aspect-square rounded-2xl object-cover border border-outline-variant/20 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  loading="lazy"
+                />
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  </div>
+</section>

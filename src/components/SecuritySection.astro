@@ -1,25 +1,29 @@
+---
+import { t } from '../i18n/utils.js';
+const { lang = 'es' } = Astro.props;
+---
 <section class="py-[32px] overflow-hidden" id="safety">
   <div class="max-w-7xl mx-auto px-[20px]">
     <div class="flex flex-col lg:flex-row gap-[32px] items-center">
       <div class="lg:w-1/2 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-moss-green text-surface-cream rounded-full">
-          <span class="text-[10px] font-bold tracking-widest uppercase">Kelev Security Protocol</span>
+          <span class="text-[10px] font-bold tracking-widest uppercase">{t(lang, 'security.badge')}</span>
         </div>
-        <h2 class="text-headline-lg font-headline-lg text-deep-navy">Seguridad de Grado Militar: <br>Blockchain Kelev</h2>
-        <p class="text-body-lg text-on-surface-variant">Nuestra red está respaldada por una infraestructura descentralizada propietaria. Cada registro de salud es verificado y sellado por nuestra red de validadores, garantizando que la historia de tu perro nunca pueda ser alterada o perdida.</p>
+        <h2 class="text-headline-lg font-headline-lg text-deep-navy" set:html={t(lang, 'security.title')}></h2>
+        <p class="text-body-lg text-on-surface-variant">{t(lang, 'security.text')}</p>
         <ul class="space-y-4">
           <li class="flex items-start gap-3">
             <span class="material-symbols-outlined text-moss-green [font-variation-settings:'FILL'_1]">check_circle</span>
             <div>
-              <span class="font-bold text-deep-navy">18 nodos validadores</span>
-              <p class="text-body-md text-on-surface-variant">Consenso distribuido para la máxima integridad de los datos.</p>
+              <span class="font-bold text-deep-navy">{t(lang, 'security.item1_title')}</span>
+              <p class="text-body-md text-on-surface-variant">{t(lang, 'security.item1_text')}</p>
             </div>
           </li>
           <li class="flex items-start gap-3">
             <span class="material-symbols-outlined text-moss-green [font-variation-settings:'FILL'_1]">check_circle</span>
             <div>
-              <span class="font-bold text-deep-navy">Encriptación de punto a punto</span>
-              <p class="text-body-md text-on-surface-variant">Privacidad total para los dueños y datos médicos sensibles.</p>
+              <span class="font-bold text-deep-navy">{t(lang, 'security.item2_title')}</span>
+              <p class="text-body-md text-on-surface-variant">{t(lang, 'security.item2_text')}</p>
             </div>
           </li>
         </ul>
@@ -31,7 +35,7 @@
           </div>
           <div class="relative z-10 space-y-6">
             <div class="flex justify-between items-center border-b border-white/10 pb-4">
-              <span class="text-sprout-lime font-mono text-label-md">CONSOLA DE TRANSACCIÓN</span>
+              <span class="text-sprout-lime font-mono text-label-md">{t(lang, 'security.console_title')}</span>
               <div class="flex gap-1">
                 <div class="w-2 h-2 rounded-full bg-red-500"></div>
                 <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -39,24 +43,24 @@
               </div>
             </div>
             <div class="font-mono text-sm space-y-2 text-white/80">
-              <p><span class="text-sprout-lime">&gt;</span> INITIALIZING LEDGER...</p>
-              <p><span class="text-sprout-lime">&gt;</span> FETCHING DOG_ID: KLV-00428-ID</p>
-              <p><span class="text-sprout-lime">&gt;</span> BLOCKCHAIN HASH: 0x7e8f...a42c</p>
+              <p><span class="text-sprout-lime">&gt;</span> {t(lang, 'security.console_l1')}</p>
+              <p><span class="text-sprout-lime">&gt;</span> {t(lang, 'security.console_l2')}</p>
+              <p><span class="text-sprout-lime">&gt;</span> {t(lang, 'security.console_l3')}</p>
               <div class="py-2 bg-white/5 rounded px-3 border-l-2 border-sprout-lime">
-                <p class="text-sprout-lime text-xs">CERTIFICADO DIGITAL ACTIVO</p>
-                <p class="text-xs text-white/80">Propiedad: Familia Rodriguez</p>
-                <p class="text-xs text-white/80">Status: Validado por 18 nodos</p>
+                <p class="text-sprout-lime text-xs">{t(lang, 'security.console_cert')}</p>
+                <p class="text-xs text-white/80">{t(lang, 'security.console_owner')}</p>
+                <p class="text-xs text-white/80">{t(lang, 'security.console_status')}</p>
               </div>
-              <p class="animate-pulse"><span class="text-sprout-lime">&gt;</span> SYNCING WITH GLOBAL PASSPORT... [DONE]</p>
+              <p class="animate-pulse"><span class="text-sprout-lime">&gt;</span> {t(lang, 'security.console_l4')}</p>
             </div>
             <div class="bg-surface-cream/10 p-4 rounded-xl border border-white/5 flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-full bg-moss-green flex items-center justify-center">
                   <span class="material-symbols-outlined text-sprout-lime text-sm">lock</span>
                 </div>
-                <span class="text-xs text-white">Immutable Record Active</span>
+                <span class="text-xs text-white">{t(lang, 'security.console_record')}</span>
               </div>
-              <button class="text-xs bg-sprout-lime text-deep-navy px-3 py-1 rounded font-bold hover:bg-white transition-colors cursor-pointer border-none">VERIFICAR</button>
+              <button class="text-xs bg-sprout-lime text-deep-navy px-3 py-1 rounded font-bold hover:bg-white transition-colors cursor-pointer border-none">{t(lang, 'security.console_verify')}</button>
             </div>
           </div>
         </div>

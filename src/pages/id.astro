@@ -5,12 +5,14 @@ import HeroSection from '../components/Hero.astro';
 import KelevCare from '../components/KelevCare.astro';
 import Contact from '../components/Contact.astro';
 import PassportFooter from '../components/PassportFooter.astro';
+
+const lang = Astro.currentLocale || 'es';
 ---
 
 <BaseLayout title="Digital Passport">
-  <PassportHeader slot="header" />
-  <HeroSection />
-  <KelevCare />
-  <Contact />
-  <PassportFooter slot="footer" />
+  <PassportHeader slot="header" lang={lang} />
+  <HeroSection lang={lang} />
+  <KelevCare lang={lang} />
+  <Contact lang={lang} />
+  <PassportFooter slot="footer" lang={lang} />
 </BaseLayout>
