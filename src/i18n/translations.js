@@ -78,6 +78,10 @@ export const translations = {
     'footer.contact_us': 'Contáctanos',
     'footer.disclaimer': 'Kelev ID es una marca de Kelev Ecosystem. Registrado y operado globalmente.',
 
+    'passport.unknown': 'Desconocido',
+    'passport.gallery': 'Galería',
+    'passport.fur_type': 'Tipo de Pelaje',
+    'passport.weight': 'Peso',
     'passport.badge': 'Pasaporte Activo',
     'passport.label': 'Pasaporte Digital',
     'passport.name': 'Rocky',
@@ -215,6 +219,10 @@ export const translations = {
     'footer.contact_us': 'Contact Us',
     'footer.disclaimer': 'Kelev ID is a trademark of Kelev Ecosystem. Registered and operated globally.',
 
+    'passport.unknown': 'Unknown',
+    'passport.gallery': 'Gallery',
+    'passport.fur_type': 'Fur Type',
+    'passport.weight': 'Weight',
     'passport.badge': 'Passport Active',
     'passport.label': 'Digital Passport',
     'passport.name': 'Rocky',
