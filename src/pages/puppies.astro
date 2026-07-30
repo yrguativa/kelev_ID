@@ -39,7 +39,7 @@ function statusClass(status) {
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px]">
       {puppies.map((pup) => {
-        const href = `/puppy/${pup.id}`;
+        const href = `/id/${pup.id}`;
         return (
           <a href={href} class="group no-underline">
             <div class="relative aspect-[4/5] rounded-[24px] overflow-hidden">
