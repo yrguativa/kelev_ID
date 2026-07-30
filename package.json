@@ -1,7 +1,7 @@
 {
   "name": "kelev-id",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.8.3",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
