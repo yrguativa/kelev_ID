@@ -4,7 +4,7 @@ const { lang = 'es' } = Astro.props;
 ---
 <section class="relative min-h-[85vh] flex items-center overflow-hidden pt-12">
   <div class="max-w-7xl mx-auto px-[20px] grid grid-cols-1 lg:grid-cols-2 gap-[32px] items-center z-10">
-    <div class="space-y-[16px]">
+    <div class="space-y-[16px] scroll-reveal-left">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full" style="background-color: rgba(214, 237, 124, 0.2); border: 1px solid rgba(214, 237, 124, 0.3);">
         <span class="material-symbols-outlined text-[18px] text-moss-green [font-variation-settings:'FILL'_1]">auto_awesome</span>
         <span class="text-label-md font-label-md text-moss-green">{t(lang, 'hero.badge')}</span>
@@ -24,9 +24,9 @@ const { lang = 'es' } = Astro.props;
         </button>
       </div>
     </div>
-    <div class="relative flex justify-center lg:justify-end">
+    <div class="relative flex justify-center lg:justify-end scroll-reveal-right">
       <div class="relative w-full max-w-md aspect-[4/5] overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700" style="border-radius: 40px;">
-        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtZF_j0Vj9s_oyoWQgb2ulixeLO8tAfPWztHvr6BsVbBsoQytM7YUoRT3ZoWJRKm0XK4Vm9ebVgSo0I-_7EUwiY22BE9ONAP_Ffb5u5a_74bqjtYb1xEQsIuRHH7em10VrXTZ9pw53zme04wU1ueDFUAvxacfkwQohKscgeB1CckRVntu805mXB_pXTePJoJPDEjKeWavjSX9LaJFqh-kb-d1Z6NRBzblG6pXj_EjNQaz5JEmTFcx5kkv6y" alt="Puppies" />
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtZF_j0Vj9s_oyoWQgb2ulixeLO8tAfPWztHvr6BsVbBsoQytM7YUoRT3ZoWJRKm0XK4Vm9ebVgSo0I-_7EUwiY22BE9ONAP_Ffb5u5a_74bqjtYb1xEQsIuRHH7em10VrXTZ9pw53zme04wU1ueDFUAvxacfkwQohKscgeB1CckRVntu805mXB_pXTePJoJPDEjKeWavjSX9LaJFqh-kb-d1Z6NRBzblG6pXj_EjNQaz5JEmTFcx5kkv6y" alt="Puppies" loading="lazy" />
       </div>
       <div class="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl max-w-[200px] hidden sm:block border border-outline-variant/10" style="border-radius: 40px;">
         <div class="flex items-center gap-3 mb-2">

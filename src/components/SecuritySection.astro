@@ -5,7 +5,7 @@ const { lang = 'es' } = Astro.props;
 <section class="py-[32px] overflow-hidden" id="safety">
   <div class="max-w-7xl mx-auto px-[20px]">
     <div class="flex flex-col lg:flex-row gap-[32px] items-center">
-      <div class="lg:w-1/2 space-y-6">
+      <div class="lg:w-1/2 space-y-6 scroll-reveal-left">
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-moss-green text-surface-cream rounded-full">
           <span class="text-[10px] font-bold tracking-widest uppercase">{t(lang, 'security.badge')}</span>
         </div>
@@ -28,7 +28,7 @@ const { lang = 'es' } = Astro.props;
           </li>
         </ul>
       </div>
-      <div class="lg:w-1/2 w-full">
+      <div class="lg:w-1/2 w-full scroll-reveal-right">
         <div class="bg-deep-navy p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
           <div class="absolute top-0 right-0 p-4 opacity-20">
             <span class="material-symbols-outlined text-sprout-lime text-[120px]">security</span>

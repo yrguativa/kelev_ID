@@ -2,28 +2,28 @@
 import { t } from '../i18n/utils.js';
 const { lang = 'es' } = Astro.props;
 ---
-<section class="py-[32px] bg-surface-container-low" id="ecosystem">
+<section class="py-[32px] bg-surface-container-low scroll-reveal" id="ecosystem">
   <div class="max-w-7xl mx-auto px-[20px]">
-    <div class="text-center mb-16 space-y-2">
+    <div class="text-center mb-16 space-y-2 scroll-reveal">
       <h2 class="text-headline-lg font-headline-lg text-deep-navy">{t(lang, 'pillars.title')}</h2>
       <p class="text-body-md font-body-md text-on-surface-variant max-w-2xl mx-auto">{t(lang, 'pillars.subtitle')}</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group">
+      <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group scroll-reveal" style="transition-delay:0ms">
         <div class="w-14 h-14 bg-surface-cream rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-moss-green text-3xl">fingerprint</span>
         </div>
         <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">{t(lang, 'pillar1.title')}</h3>
         <p class="text-body-md text-on-surface-variant">{t(lang, 'pillar1.text')}</p>
       </div>
-      <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group">
+      <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group scroll-reveal" style="transition-delay:150ms">
         <div class="w-14 h-14 bg-surface-cream rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-moss-green text-3xl">hub</span>
         </div>
         <h3 class="text-headline-md font-headline-md mb-4 text-deep-navy">{t(lang, 'pillar2.title')}</h3>
         <p class="text-body-md text-on-surface-variant">{t(lang, 'pillar2.text')}</p>
       </div>
-      <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group">
+      <div class="bg-white p-8 rounded-[2rem] border border-outline-variant/20 hover:border-moss-green/40 transition-all group scroll-reveal" style="transition-delay:300ms">
         <div class="w-14 h-14 bg-surface-cream rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-moss-green text-3xl">public</span>
         </div>

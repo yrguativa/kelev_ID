@@ -36,7 +36,7 @@ function isVideo(url) {
       <img
         src={puppy?.profilePhotoUrl || 'https://lh3.googleusercontent.com/aida/AP1WRLvZjDeQtDgjBLhqz6ZDbOoRNpVQBmLg2-T8wHL0i0s4nqex0GUjxrGO7DhljAcnc0b2_n4MwroG8Nq51lClVTcQCulPCJQTqpYqQcDDpE7tZTCT_JKoFwu2sgqho0KPpkYQP4aLytE0poTuQHho0hqlJvAMEeL7Yf4ywTJ7Tqr9g29kQmD1lUClXJB_poSDKY7QiAOQKSll7NXYqdV9A3UcbWMsDnlBZE7y7SNYVvVrJ3_8yByjrezA-Xnh'}
         alt={puppy?.fullName || 'Rocky'}
-        class="w-full h-full object-cover transition-transform duration-[1.5s] hover:scale-105"
+        class="w-full h-full object-cover transition-transform duration-[1.5s] hover:scale-105" loading="lazy"
       />
     </div>
     <div class="md:w-7/12 p-8 md:p-16 flex flex-col justify-start">
@@ -98,7 +98,7 @@ function isVideo(url) {
               {puppy.galleryPhotos.map((url) => (
                 isVideo(url)
                   ? <video src={url} class="w-full aspect-square object-cover rounded-xl" />
-                  : <img src={url} alt="" class="w-full aspect-square object-cover rounded-xl transition-transform duration-300 hover:scale-105 hover:shadow-[0_4px_12px_0_rgba(4,11,40,0.1)]" />
+                  : <img src={url} alt="" class="w-full aspect-square object-cover rounded-xl transition-transform duration-300 hover:scale-105 hover:shadow-[0_4px_12px_0_rgba(4,11,40,0.1)]" loading="lazy" />
               ))}
             </div>
           </div>
