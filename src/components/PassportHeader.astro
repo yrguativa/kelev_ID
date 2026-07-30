@@ -3,7 +3,10 @@ const { lang = 'es' } = Astro.props;
 ---
 <header class="bg-surface-cream fixed top-0 w-full z-50 transition-all duration-300">
   <div class="flex justify-between items-center w-full px-[20px] py-4 max-w-7xl mx-auto">
-    <img src="/kelev-logo.png" alt="Kelev ID" class="h-8 w-auto" />
+    <div class="flex items-center gap-2">
+      <img src="/kelev-logo.png" alt="Kelev ID" class="h-8 w-auto" />
+      <span class="font-display-lg text-primary tracking-tight">Kelev ID</span>
+    </div>
     <nav class="hidden md:flex gap-8 items-center"></nav>
     <div class="flex items-center gap-4"></div>
   </div>

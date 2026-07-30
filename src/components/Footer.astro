@@ -5,7 +5,10 @@ import { t } from '../i18n/utils.js';
 <footer class="w-full bg-surface-container-highest border-t border-outline-variant/50 mt-16">
   <div class="w-full py-[32px] px-[20px] max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-[16px]">
     <div class="space-y-4 max-w-xs">
-      <img src="/kelev-logo.png" alt="Kelev ID" class="h-7 w-auto" />
+      <div class="flex items-center gap-2">
+        <img src="/kelev-logo.png" alt="Kelev ID" class="h-7 w-auto" />
+        <span class="text-headline-md font-headline-md font-bold text-moss-green">Kelev ID</span>
+      </div>
       <p class="text-body-md font-body-md text-on-surface-variant">{t(lang, 'footer.copyright')}</p>
       <div class="flex gap-4">
         <a href="https://www.instagram.com/kelev.puppy/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center rounded-full bg-moss-green/10 text-moss-green hover:bg-moss-green hover:text-white transition-all no-underline" aria-label="Instagram">
