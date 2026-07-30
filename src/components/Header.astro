@@ -2,30 +2,27 @@
 const { lang = 'es' } = Astro.props;
 ---
 <header class="w-full top-0 sticky z-50 bg-surface-cream/80 backdrop-blur-md border-b border-outline-variant/30">
-  <nav class="flex justify-between items-center w-full px-[20px] max-w-7xl mx-auto py-4">
+  <nav class="relative flex justify-center items-center w-full px-[20px] max-w-7xl mx-auto py-4">
     <div class="flex items-center gap-2">
       <img src="/kelev-logo.png" alt="Kelev ID" class="h-7 w-auto" />
       <span class="text-headline-md font-headline-md font-bold text-primary">Kelev ID</span>
     </div>
-    <div class="hidden md:flex items-center gap-[32px]"></div>
-    <div class="flex items-center gap-4">
-      <div class="flex items-center gap-1 text-label-md font-label-md">
-        {
-          lang === 'es' ? (
-            <>
-              <span class="text-moss-green font-bold">ES</span>
-              <span class="text-outline-variant">/</span>
-              <a href="/en/" class="text-on-surface-variant no-underline hover:text-moss-green transition-colors">EN</a>
-            </>
-          ) : (
-            <>
-              <a href="/" class="text-on-surface-variant no-underline hover:text-moss-green transition-colors">ES</a>
-              <span class="text-outline-variant">/</span>
-              <span class="text-moss-green font-bold">EN</span>
-            </>
-          )
-        }
-      </div>
+    <div class="absolute right-[20px] top-1/2 -translate-y-1/2 flex items-center gap-1 text-label-md font-label-md">
+      {
+        lang === 'es' ? (
+          <>
+            <span class="text-moss-green font-bold">ES</span>
+            <span class="text-outline-variant">/</span>
+            <a href="/en/" class="text-on-surface-variant no-underline hover:text-moss-green transition-colors">EN</a>
+          </>
+        ) : (
+          <>
+            <a href="/" class="text-on-surface-variant no-underline hover:text-moss-green transition-colors">ES</a>
+            <span class="text-outline-variant">/</span>
+            <span class="text-moss-green font-bold">EN</span>
+          </>
+        )
+      }
     </div>
   </nav>
 </header>
