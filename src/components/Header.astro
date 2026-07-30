@@ -1,11 +1,10 @@
 ---
-import { t } from '../i18n/utils.js';
 const { lang = 'es' } = Astro.props;
 ---
 <header class="w-full top-0 sticky z-50 bg-surface-cream/80 backdrop-blur-md border-b border-outline-variant/30">
   <nav class="flex justify-between items-center w-full px-[20px] max-w-7xl mx-auto py-4">
     <div class="flex items-center gap-2">
-      <span class="text-headline-md font-headline-md font-bold text-moss-green">{t(lang, 'header.title')}</span>
+      <img src="/kelev-logo.png" alt="Kelev ID" class="h-7 w-auto" />
     </div>
     <div class="hidden md:flex items-center gap-[32px]"></div>
     <div class="flex items-center gap-4">
